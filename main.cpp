@@ -59,8 +59,8 @@ int main()
     for(int i = 0; i < 10; ++i) {
         int fi = fibonacciGen(i, 10);
         int fa = factorialGen(i);
-        //listDefault.push_back(hard(fi, fa));
-        listDefault.emplaceBack(hard(fi, fa));
+        listDefault.push_back(hard(fi, fa));
+        //listDefault.emplaceBack(hard(fi, fa));
     }
 
     for(int i = 0; i < 10; ++i) {
@@ -74,8 +74,8 @@ int main()
     for(int i = 0; i < 10; ++i) {
         int fi = fibonacciGen(i, 10);
         int fa = factorialGen(i);
-        //m_customAllocList.push_back(hard(fi, fa));
-        m_customAllocList.emplaceBack(hard(fi, fa));
+        m_customAllocList.push_back(hard(fi, fa));
+        //m_customAllocList.emplaceBack(hard(fi, fa));
     }
 
     for(int i = 0; i < 10; ++i) {
