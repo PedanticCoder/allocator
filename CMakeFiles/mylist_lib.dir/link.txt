@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmylist_lib.a  CMakeFiles/mylist_lib.dir/mylist.cpp.o
-/usr/bin/ranlib libmylist_lib.a

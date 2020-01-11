@@ -1,2 +1,0 @@
-/usr/bin/ar qc liblogging_allocator_lib.a  CMakeFiles/logging_allocator_lib.dir/logging_allocator.cpp.o
-/usr/bin/ranlib liblogging_allocator_lib.a
