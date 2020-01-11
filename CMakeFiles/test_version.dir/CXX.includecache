@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/artem/cpp_otus/allocator/lib.h
+
+/home/artem/cpp_otus/allocator/test_version.cpp
+lib.h
+/home/artem/cpp_otus/allocator/lib.h
+boost/test/unit_test.hpp
+-
+

@@ -1,0 +1,15 @@
+/home/artem/cpp_otus/allocator/CMakeFiles/install.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/list_install_components.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/edit_cache.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/package_source.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/package.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/install/strip.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/allocator_lib.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/test_version.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/install/local.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/test.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/allocator.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/rebuild_cache.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/math_functions_lib.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/mylist_lib.dir
+/home/artem/cpp_otus/allocator/CMakeFiles/logging_allocator_lib.dir

@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/artem/cpp_otus/allocator/math_functions.cpp
+math_functions.h
+/home/artem/cpp_otus/allocator/math_functions.h
+vector
+-
+numeric
+-
+
+/home/artem/cpp_otus/allocator/math_functions.h
+iostream
+-
+
