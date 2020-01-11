@@ -26,7 +26,7 @@ struct hard
 
 int main()
 {
-    auto m_Map = std::map<int, hard>{};
+    /*auto m_Map = std::map<int, hard>{};
 
     for(int i = 0; i < 10; ++i) {
         int fi = fibonacciGen(i, 10);
@@ -98,7 +98,7 @@ int main()
 
     // Test for move ctor with different allocator types
     std::cout << "Test for move ctor with different allocator types: " << std::endl;
-    myList<hard, logging_allocator<hard, 10>> { std::move(listDefault) };
+    myList<hard, logging_allocator<hard, 10>> { std::move(listDefault) };*/
 
     return 0;
 }
