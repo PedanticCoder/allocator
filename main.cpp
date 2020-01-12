@@ -15,11 +15,9 @@ struct hard
     hard(int fi, int fa)
         : fi(fi), fa(fa) {}
 
-    hard& operator=(hard &src) = default;
+    hard(const hard&) = delete;
 
-    //hard(const hard&) = delete;
-
-    //hard(hard&&) noexcept = delete;
+    hard(hard&&) noexcept = delete;
 
     ~hard() {}
 };
@@ -36,7 +34,7 @@ int main()
     for(int i = 0; i < 10; ++i) {
         int fi = fibonacciGen(i, 10);
         int fa = factorialGen(i);
-        m_Map.emplace(i, hard(fi, fa));
+        m_Map.try_emplace(i, fi, fa);
     }
 
     for(const auto& elem : m_Map) {
@@ -50,7 +48,7 @@ int main()
     for(int i = 0; i < 10; ++i) {
         int fi = fibonacciGen(i, 10);
         int fa = factorialGen(i);
-        m_customAllocMap.emplace(i, hard(fi, fa));
+        m_customAllocMap.try_emplace(i, fi, fa);
     }
 
     for(const auto& elem : m_customAllocMap) {
