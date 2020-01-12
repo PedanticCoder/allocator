@@ -34,7 +34,7 @@ int main()
     for(int i = 0; i < 10; ++i) {
         int fi = fibonacciGen(i, 10);
         int fa = factorialGen(i);
-        m_Map.try_emplace(i, fi, fa);
+        m_Map.emplace(i, hard(fi, fa));
     }
 
     for(const auto& elem : m_Map) {
@@ -48,7 +48,7 @@ int main()
     for(int i = 0; i < 10; ++i) {
         int fi = fibonacciGen(i, 10);
         int fa = factorialGen(i);
-        m_customAllocMap.try_emplace(i, fi, fa);
+        m_customAllocMap.emplace(i, hard(fi, fa));
     }
 
     for(const auto& elem : m_customAllocMap) {
