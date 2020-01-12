@@ -15,9 +15,9 @@ struct hard
     hard(int fi, int fa)
         : fi(fi), fa(fa) {}
 
-    hard(const hard&) = delete;
+    //hard(const hard&) = delete;
 
-    hard(hard&&) noexcept = delete;
+    //hard(hard&&) noexcept = delete;
 
     ~hard() {}
 };
