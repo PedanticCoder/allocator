@@ -24,6 +24,11 @@ struct hard
     ~hard() {}
 };
 
+std::ostream& operator<< (std::ostream& out, const hard &hard_) {
+    out << hard_.fi << ' ' << hard_.fa << std::endl;
+    return out;
+}
+
 int main()
 {
     auto m_Map = std::map<int, hard>{};
@@ -59,30 +64,32 @@ int main()
     for(int i = 0; i < 10; ++i) {
         int fi = fibonacciGen(i, 10);
         int fa = factorialGen(i);
-        listDefault.push_back(hard(fi, fa));
-        //listDefault.emplaceBack(hard(fi, fa));
+        //listDefault.push_back(hard(fi, fa));
+        listDefault.emplaceBack(fi, fa);
     }
 
-    for(int i = 0; i < 10; ++i) {
-        std::cout << listDefault[i].fi << " "
-                  << listDefault[i].fa
-                  << std::endl;
+    myList<hard>::iterator it;
+
+    for (it=listDefault.cbegin(); it!=listDefault.cend(); ++it) {
+        std::cout << *it;
     }
+    std::cout << std::endl;
 
     auto m_customAllocList = myList<hard, logging_allocator<hard, 10>>{};
 
     for(int i = 0; i < 10; ++i) {
         int fi = fibonacciGen(i, 10);
         int fa = factorialGen(i);
-        m_customAllocList.push_back(hard(fi, fa));
-        //m_customAllocList.emplaceBack(hard(fi, fa));
+        //m_customAllocList.push_back(hard(fi, fa));
+        m_customAllocList.emplaceBack(fi, fa);
     }
 
-    for(int i = 0; i < 10; ++i) {
-        std::cout << listDefault[i].fi << " "
-                  << listDefault[i].fa
-                  << std::endl;
+    myList<hard, logging_allocator<hard, 10>>::iterator it2;
+
+    for (it2=m_customAllocList.cbegin(); it2!=m_customAllocList.cend(); ++it2) {
+        std::cout << *it2;
     }
+    std::cout << std::endl;
 
     // Test for copy ctor with same allocator types
     std::cout << "Test for copy ctor with same allocator types: " << std::endl;
