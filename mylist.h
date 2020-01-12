@@ -12,54 +12,6 @@ struct Node
     Node(Args &&...args) : next(nullptr), data(std::forward<Args>(args)...) {}
 };
 
-template<typename T>
-struct iterator
-{
-    using value_type = T;
-    using pointer = const T*;
-    using reference = const T&;
-    using iterator_category = std::forward_iterator_tag;
-    using self = iterator<T>;
-
-    Node<T>* the_node;
-
-    iterator()
-        :the_node(nullptr) {}
-
-    iterator(Node<T> *the_node_)
-        :the_node(the_node_) {}
-
-    reference operator*() const
-    {
-        return the_node->data;
-    }
-
-    pointer operator->() const {
-        return &(the_node->data);
-    }
-
-    self& operator++()
-    {
-        if(the_node==nullptr) {
-            return *this;
-        }
-        else {
-            the_node = the_node->next;
-        }
-        return *this;
-    }
-
-    bool operator==(const iterator& it) const
-    {
-        return (the_node==it.the_node);
-    }
-
-    bool operator!=(const iterator& it) const
-    {
-        return !(it==*this);
-    }
-};
-
 template<typename T, typename Allocator_ = std::allocator<T>>
 class myList
 {
@@ -138,8 +90,6 @@ public:
         }
     }
 
-
-
     template<typename... Args>
     void push_back(Args&&...args)
     {
@@ -166,6 +116,8 @@ public:
     void emplaceBack(Args&&...args)
     {
         Node<T> *new_node = alloc.allocate(1);
+
+        alloc.construct(&new_node->next);
         alloc.construct(&new_node->data, std::forward<Args>(args)...);
 
         if(head==nullptr)
@@ -184,37 +136,62 @@ public:
         }
     }
 
-    void pop_front()
+public:
+    struct iterator
     {
-        Node<T> *temp = head;
-        head = head->next;
-        delete temp;
-    }
+        using value_type = T;
+        using pointer = const T*;
+        using reference = const T&;
+        using iterator_category = std::forward_iterator_tag;
+        using self = iterator;
 
-    T& operator[](const size_t index)
-    {
-        size_t counter = 0;
-        Node<T> *current = this->head;
-        while(current!=nullptr)
+        Node<T>* the_node;
+
+        iterator()
+            :the_node(nullptr) {}
+
+        iterator(Node<T> *the_node_)
+            :the_node(the_node_) {}
+
+        reference operator*() const
         {
-            if(counter==index)
-            {
-                return current->data;
-            }
-            current = current->next;
-            counter++;
+            return the_node->data;
         }
-        throw "invalid pointer";
-    }
 
-    iterator<T> cbegin() const noexcept {
-        return iterator<T>(head);
-    }
+        pointer operator->() const {
+            return &(the_node->data);
+        }
 
-    iterator<T> cend() noexcept {
-        return iterator<T>();
-    }
-private:
+        self& operator++()
+        {
+            if(the_node==nullptr) {
+                return *this;
+            }
+            else {
+                the_node = the_node->next;
+            }
+            return *this;
+        }
+
+        bool operator==(const iterator& it) const
+        {
+            return (the_node==it.the_node);
+        }
+
+        bool operator!=(const iterator& it) const
+        {
+            return !(it==*this);
+        }
+    };
+
+        iterator cbegin() const noexcept {
+            return iterator(head);
+        }
+
+        iterator cend() noexcept {
+            return iterator();
+        }
+
     Node<T> *head = nullptr;
     using Allocator = typename Allocator_::template rebind<Node<T>>::other;
     Allocator alloc;
